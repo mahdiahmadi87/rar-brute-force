@@ -30,7 +30,8 @@ def test_password_chunk(args):
     try:
         for num in range(start_num, end_num + 1):
             password = str(num).zfill(8)  # Pad with zeros for consistent length
-            
+            if int(password) % 100 == 0:
+                print(password)
             try:
                 with rarfile.RarFile(rar_path) as rf:
                     rf.setpassword(password)
